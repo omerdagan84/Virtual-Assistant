@@ -22,21 +22,24 @@ for (int i = 0; i < strlen(example); i++) {
 
 split[k][j] = '\0';
 
-
+printf("classifier: %s", classifier[0][0][0]);
 //For Weather---------------------------------------
 
-for (int v = 0; v <= k; v++)
-    for (int b = 0; b < 3; b++) {
+for (int class = 0 ; class < LAST_FIELD ; class++) {
+	for (int v = 0; v <= k; v++) {
+		for (int b = 0; b < 3; b++) {
 
-        for (int c = 0; c < 4; c++) {
-            if (strcmp(classifier[WEATHER][b][c], split[v]) == 0) {
-                w++;
-
-            }
-        }
-    }
-scores[WEATHER] = w;
-
+			for (int c = 0; c < 4; c++) {
+				if (strcmp(classifier[class][b][c], split[v]) == 0) {
+					w++;
+				}
+			}
+		}
+	}
+	scores[class] = w;
+}
+printf("CHECK 2");
+/*
 //For Greeting-----------------------------------
 
 for (int v = 0; v <= k; v++)
@@ -98,7 +101,7 @@ for (int v = 0; v <= k; v++)
         }
     }
 scores[RESTAURANT] = res;
-
+*/
 int score = 0;
 for (int i; i < LAST_FIELD; i++) {
 	if (scores[i] > score) {
