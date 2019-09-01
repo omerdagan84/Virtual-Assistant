@@ -29,7 +29,7 @@ for (int v = 0; v <= k; v++)
     for (int b = 0; b < 3; b++) {
 
         for (int c = 0; c < 4; c++) {
-            if (strcmp(weather_class[b][c], split[v]) == 0) {
+            if (strcmp(classifier[WEATHER][b][c], split[v]) == 0) {
                 w++;
 
             }
@@ -42,7 +42,7 @@ scores[WEATHER] = w;
 for (int v = 0; v <= k; v++)
     for (int b = 0; b < 3; b++) {
         for (int c = 0; c < 4; c++) {
-            if (strcmp(greeting_class[b][c], split[v]) == 0) {
+            if (strcmp(classifier[GREETING][b][c], split[v]) == 0) {
                 g++;
             }
         }
@@ -55,7 +55,7 @@ scores[GREETING] = g;
 for (int v = 0; v <= k; v++)
     for (int b = 0; b < 3; b++) {
         for (int c = 0; c < 4; c++) {
-            if (strcmp(google_class[b][c], split[v]) == 0) {
+            if (strcmp(classifier[GOOGLE][b][c], split[v]) == 0) {
                 go++;
             }
         }
@@ -68,7 +68,7 @@ scores[GOOGLE] = go;
 for (int v = 0; v <= k; v++)
     for (int b = 0; b < 3; b++) {
         for (int c = 0; c < 4; c++) {
-            if (strcmp(media_class[b][c], split[v]) == 0) {
+            if (strcmp(classifier[MEDIA][b][c], split[v]) == 0) {
                 me++;
             }
         }
@@ -80,7 +80,7 @@ scores[MEDIA] = me;
 for (int v = 0; v <= k; v++)
     for (int b = 0; b < 3; b++) {
         for (int c = 0; c < 4; c++) {
-            if (strcmp(email_class[b][c], split[v]) == 0) {
+            if (strcmp(classifier[EMAIL][b][c], split[v]) == 0) {
                 em++;
             }
         }
@@ -92,7 +92,7 @@ scores[EMAIL] = em;
 for (int v = 0; v <= k; v++)
     for (int b = 0; b < 3; b++) {
         for (int c = 0; c < 4; c++) {
-            if (strcmp(restaurant_class[b][c], split[v]) == 0) {
+            if (strcmp(classifier[RESTAURANT][b][c], split[v]) == 0) {
                 res++;
             }
         }
