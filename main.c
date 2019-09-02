@@ -1,19 +1,9 @@
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <curl/curl.h>
-#include <json-c/json_object.h>
-#include <json-c/json_tokener.h>
-#include "functions.c"
-#include "email.c"
 #include "defines.h"
-#include <stdbool.h>
 
 
 int main() {
 
-#include "init_config.c"
+	init();
 
     //Inform user about preferred media player, as to config file
     char preferred_media_player[1000];
@@ -27,19 +17,9 @@ int main() {
 
     do {
 
-        //---------------------------------------------------------------------------------------------------------------------
-
-        //Artificial Intelligence
-#include "requests.c"
-        //Artificial Intelligence {REQUESTS}
-
-#include "analysis.c"
-        //Artificial Intelligence {ANALYSIS}
-
-#include "response.c"
-        //Artificial Intelligence {RESPONSE}
-
-        //---------------------------------------------------------------------------------------------------------------------
+		get_user_input(example);
+		analyze(example, result);
+		response(result);
 
     } while ((strcmp(str, "stop") != 0));
 
