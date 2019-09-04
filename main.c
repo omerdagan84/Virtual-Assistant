@@ -1,11 +1,8 @@
 #include "defines.h"
-//#include "functions.c"
-//#include "email.c"
 
 
 int main() {
 
-//#include "init_config.c"
 	init();
 
     //Inform user about preferred media player, as to config file
@@ -20,21 +17,9 @@ int main() {
 
     do {
 
-        //---------------------------------------------------------------------------------------------------------------------
-
-        //Artificial Intelligence
-//#include "requests.c"
 		get_user_input(example);
-        //Artificial Intelligence {REQUESTS}
 		analyze(example, result);
-//#include "analysis.c"
-        //Artificial Intelligence {ANALYSIS}
-
 		response(result);
-//#include "response.c"
-        //Artificial Intelligence {RESPONSE}
-
-        //---------------------------------------------------------------------------------------------------------------------
 
     } while ((strcmp(str, "stop") != 0));
 
