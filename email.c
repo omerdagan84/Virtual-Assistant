@@ -1,18 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <netinet/in.h>
-#include <netdb.h>
-#include <unistd.h>
-#include <sys/wait.h>
-#include "encode.c"
-#include "ssl.c"
-
-#ifndef BUFFER_SIZE
-#define BUFFER_SIZE 4096
-#endif
+#include "defines.h"
 
 int config_email_function(){
   char from[BUFFER_SIZE] = "";

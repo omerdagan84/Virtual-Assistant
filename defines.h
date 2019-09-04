@@ -3,10 +3,49 @@
  *
  * Created on Septemver 3, 2019, 10:00 AM
  */
+#ifndef __DEFINES__
+#define __DEFINES__
 
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <curl/curl.h>
+#include <json-c/json_object.h>
+#include <json-c/json_tokener.h>
+#include <stdbool.h>
+#include "functions.h"
+#include <ctype.h>
+#include "b64.h"
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <netdb.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <arpa/inet.h>
+//#include "decode.c"
+
+#include <openssl/bio.h>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+//#include "encode.c"
+//#include "ssl.c"
+
+#define SPACE ' '
 #define WORD_LEN 10
 #define NUM_WORDS 10
+#define MAX_USER_INPUT 1000
+#define BUFFER_SIZE 4096
 
+void get_user_input(char *);
+void analyze(char *, char *);
+void response(char *);
+void init();
+int find_restaurants();
+int show_weather(char*); 
+int email();
+int ssl_connect(char *);
 /* catagories enum - DO NOT evaluate elements
  * LAST_FIELD must remain last
  */
@@ -24,67 +63,32 @@ enum catagories {
 };
 
 /* scores array - used for classification of input*/
-int scores[LAST_FIELD] = {0};
-const char *catagories_str[LAST_FIELD] =
-{
-	"weather",
-	"greeting",
-	"media",
-	"google",
-	"email",
-	"calendar",
-	"youtube",
-	"help",
-	"restaurant"
-};
+extern int scores[LAST_FIELD];
+extern const char *catagories_str[LAST_FIELD];
 
 /* 3D array of al catagory classifiers*/
-const char *classifier[LAST_FIELD][NUM_WORDS][WORD_LEN] = {
-	[WEATHER] =
-	{
-		{"please", "show", "outside", "condition"},
-		{"how", " ", "weather", "today"},
-		{"weather", " ", "desired", "place"}
-	},
-	[GREETING] = {
-		{"hey", "how", "are", "you"},
-		{"how", "welcome", "morning", "doing"},
-		{"hello", "there", "good", "afternoon"}
-	},
-	[GOOGLE] = {
-		{"open", "google", "for", "me"},
-		{"I", "want", "search", "browse"},
-		{"can", "you", "open", "google"}
-	},
-	[MEDIA] = {
-		{"can", "you", "list", "media"},
-		{"video", "listen", "play", "music"},
-		{"play", "something", "nice", "song "}
-	},
-	[RESTAURANT] = {
-		{"Please", "find", "some", "restaurants"},
-		{"Find", " ", "some", "restaurants"},
-		{"Show", " ", " ", "restaurants"},
-		{"Find", "places", "to", "eat"}
-	},
-	[EMAIL] = {
-		{"can", "I", "send", "email"},
-		{"mail", "new", "mails", "write"},
-		{"Want", "to", "read", "emails"}
-	},
-	[CALENDAR] = {},
-	[YOUTUBE] = {},
-	[HELP] = {}
-};
-
+extern const char *classifier[LAST_FIELD][NUM_WORDS][WORD_LEN];
 /* globally defined variables */
-char buf[9999];
-char buffer[9999];
-char buff[9999];
-char weather[9999];
-char song[9999];
-char calendar[100];
-char example[1000];
-char split[NUM_WORDS][WORD_LEN] = {};
-int compare[10];
-char result[20];
+extern char buf[9999];
+extern char buffer[9999];
+extern char buff[9999];
+extern char weather[9999];
+extern char song[9999];
+extern char calendar[100];
+extern char example[1000];
+extern char split[NUM_WORDS][WORD_LEN];
+extern int compare[10];
+extern char result[20];
+extern char str[1000];
+extern char *start;
+extern char pv;
+extern char location[1000];
+extern char youtube[1000];
+extern char songs[1000];
+extern char cal[100];
+extern char search[100];
+extern int c, d, len;
+extern char *WebBrowser;
+extern char *M_P;
+extern char *HOME_DIR;
+#endif //__DEFINES__

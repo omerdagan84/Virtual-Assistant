@@ -1,0 +1,3 @@
+#ifndef __FUNCTION_HEADER__
+#define __FUNCTION_HEADER__
+#endif //__FUNCTION_HEADER

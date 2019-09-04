@@ -1,20 +1,5 @@
+#include "defines.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <netdb.h>
-#include <arpa/inet.h>
-#include <string.h>
-#include "decode.c"
-
-#include <openssl/bio.h>
-#include <openssl/ssl.h>
-#include <openssl/err.h>
-
-#ifndef BUFFER_SIZE
-#define BUFFER_SIZE 4096
-#endif
 
 int SMTP_request(SSL *ssl, char* to, char* title, char* body){
   char resp_buff[BUFFER_SIZE]="";
