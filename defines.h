@@ -14,7 +14,6 @@
 #include <json-c/json_object.h>
 #include <json-c/json_tokener.h>
 #include <stdbool.h>
-#include "functions.h"
 #include <ctype.h>
 #include "b64.h"
 #include <sys/socket.h>

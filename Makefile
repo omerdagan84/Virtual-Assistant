@@ -4,7 +4,7 @@ INCLUDE = -I/usr/local/include
 LDFLAGS = -L/usr/local/lib
 LDLIBS = -lcurl -lssl -lcrypto -ljson-c
 
-DEPS = functions.h defines.h
+DEPS = defines.h
 OBJ = main.o \
 	  analysis.o \
 	  decode.o \
