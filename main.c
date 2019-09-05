@@ -7,11 +7,13 @@ int main() {
 
     //Inform user about preferred media player, as to config file
     char preferred_media_player[1000];
+	printf("M_P = %s\n", M_P);
     sprintf(preferred_media_player, "say Your preferred media player is %s", M_P);
     system(preferred_media_player);
 
     //Inform user about preferred web browser, as to config file
     char preferred_webbrowser[1000];
+	printf("WB = %s\n", WebBrowser);
     sprintf(preferred_webbrowser, "say Your preferred webbrowser is %s", WebBrowser);
     system(preferred_webbrowser);
 
